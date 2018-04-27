@@ -1,0 +1,30 @@
+.Selectable span input {
+    top: 1px;
+}
+
+.Weight input {
+    text-align: center;
+}
+
+.Condition {
+    background-color: blue;
+}
+
+.Weight input:focus {
+    background-color: darkturquoise;
+    color: black;
+}
+
+#LogisticsCalculator .Table_Cell {
+    border: solid 2px darkgray;
+}
+
+#LogisticsCalculator .Table .Table_Header {
+    background-color: slateblue;
+    height: 3em;
+}
+
+#LogisticsCalculator .Table .Table_Footer {
+    background-color: blueviolet;
+    height: calc(4.5em + 2px);
+}

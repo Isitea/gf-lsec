@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>소녀전선 - 인형 제조 목록</title>
+        <script src="component/AngularJS-Gun.js"></script>
+        <script src="component/angular.min.js"></script>
+        <script src="component/GunFactory.js"></script>
+        <link rel="stylesheet" href="component/shared.css">
+        <link id="AddonStyle" rel="stylesheet" href="component/style.css">
+    </head>
+    <body ng-app="LSEC" ng-controller="GunFactory" ng-style="{ 'background-color': 'rgba( ' + BackgroundColor + ', ' + Alpha / 100 + ' )' }">
+        <div class="LSEC">
+            <div class="ManufacturingDuration"  ng-class="{ VISIBLE: visible }">
+                <fieldset>
+                    <legend>제작 시간</legend>
+                    <label><input ng-model="HH">시간</label> <label><input ng-model="MM">분</label>
+                    <input type="submit" value="모두 보기" ng-click="reset()">
+                </fieldset>
+            </div>
+            <div id="GunList" ng-class="{ VISIBLE: visible }">
+                <div class="GunList">
+                    <div class="Guns INVISIBLE {{'★'.repeat(Gun.Rarity)}}" ng-repeat="Gun in Guns" ng-class="{ VISIBLE: ( HH == Gun.HH && MM == Gun.MM ) || ( HH == 0 && MM == 0 ) }" ng-click="setDuration( Gun );">
+                        <div class="GunType {{Gun.Type}}"></div>
+                        <div class="GunName TextShadow">{{Gun.Character.name}}</div>
+                        <div class="GunTime TextShadow INVISIBLE" ng-class="{ VISIBLE: ( HH == 0 && MM == 0 ) }">{{Gun.HH}}:{{( "00" + Gun.MM ).slice(-2) }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="StyleChanger">
+                <input class="Condition" type="submit" ng-click="ChangeStyle(1)" value="예전 모습">
+                <input clsss="Condition" type="range" ng-change="UpdateAlpha(alpha)" ng-model="Alpha" min="0" max="100">
+                <input class="Condition" type="submit" ng-click="ChangeStyle(2)" value="현재 모습">
+            </div>
+            <div class="NOTAVAILABLE">
+                사용하시는 브라우저는 지원하지 않습니다.
+                <br>
+                Microsoft Edge, Google Chrome, Mozzila Firefox, Apple Safari 등의 브라우저로 변경 부탁드립니다.
+            </div>
+        </div>
+    </body>
+</html>
