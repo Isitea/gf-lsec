@@ -1,0 +1,283 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    color: ghostwhite;
+    background: url("../resource/background-AR15.jpg");
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    padding: 1.5% 2.5%;
+}
+
+body .LSEC {
+    height: 95%;
+    width: 95%;
+    overflow: hidden;
+}
+
+input {
+    border: none;
+    text-align: center;
+}
+
+.LSEC {
+    height: 100%;
+    width: 100%;
+}
+
+.LSEC > div {
+    display: none;
+}
+
+.LSEC > div.NOTAVAILABLE {
+    display: block;
+}
+
+.LSEC > div.VISIBLE ~ div.NOTAVAILABLE {
+    display: none !important;
+}
+
+.LSEC > div.VISIBLE {
+    display: flex !important;
+}
+
+.Selectable {
+    width: 100%;
+    height: 3em;
+    margin: 0 0 0.5em 0;
+}
+
+.Selectable span {
+    padding: 0 10px 0 10px;
+}
+
+.Selectable span input {
+    position: relative;
+}
+
+.Selectable fieldset {
+    float: left;
+}
+
+.Selectable fieldset:nth-child(1) {
+    width: 70%;
+}
+
+.Selectable fieldset:nth-child(2) {
+    width: 30%;
+}
+
+.Weight input {
+    width: 100%;
+    height: 100%;
+}
+
+.Condition {
+    color: white;
+}
+
+#LogisticsCalculator {
+    height: calc(100% - 4.5em);
+    width: 100%;
+}
+
+#LogisticsCalculator .Table {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+#LogisticsCalculator .Table_Cell {
+    float: left;
+    position: relative;
+}
+
+#LogisticsCalculator .Table_Row {
+    display: flex;
+}
+
+#LogisticsCalculator .Table .Table_Row > :nth-child(1) {
+    width: 10%;
+}
+
+#LogisticsCalculator .Table .Table_Row > :nth-child(2), #LogisticsCalculator .Table .Table_Row > :nth-child(3), #LogisticsCalculator .Table .Table_Row > :nth-child(4), #LogisticsCalculator .Table .Table_Row > :nth-child(5) {
+    width: 10%;
+}
+
+#LogisticsCalculator .Table .Table_Row > :nth-child(6) {
+    width: 10%;
+    font-weight: bold;
+}
+
+#LogisticsCalculator .Table .Table_Row > :nth-child(7) {
+    width: 20%;
+}
+
+#LogisticsCalculator .Table .Table_Row > :nth-child(8) {
+    width: 20%;
+}
+
+#LogisticsCalculator .Table .Table_Row.Weight > :nth-child(6), #LogisticsCalculator .Table .Table_Footer .Table_Row > :nth-child(6) {
+    width: 50%;
+}
+
+#LogisticsCalculator .Table .Table_Footer .Table_Row > :nth-child(6) input {
+    height: 100%;
+    width: 3em;
+    position: absolute;
+    margin: 0 0 0 -3em;
+}
+
+span.Min_L {
+    color: lightseagreen;
+    font-weight: bold;
+}
+
+span.Lim_M {
+    color: fuchsia;
+    font-weight: bold;
+}
+
+#LogisticsCalculator .Table .Table_Body {
+    max-height: calc(100% - 7.5em);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: calc(100% + 17px);
+}
+
+#LogisticsCalculator .Table .Table_Body .Table_Row.Selected {
+    background-color: chartreuse;
+    color: black;
+}
+
+#LogisticsCalculator .Table .Table_Body .Table_Row:hover {
+    background-color: lightsteelblue;
+}
+
+.StyleChanger {
+    display: block !important;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%,-25%);
+}
+
+.StyleChanger input {
+    margin: 0 0.5em 0 0.5em;
+}
+
+#GunList {
+    height: calc(100% - 4.5em);
+    width: 100%;
+}
+.GunList {
+    max-height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: calc(100% + 17px);
+}
+
+.Guns {
+    float: left;
+    padding: 8px;
+    height: 215px;
+    width: 240px;
+    background-size: cover;
+    position: relative;
+}
+.Guns:hover {
+    border: solid rgba(106, 90, 205, 0.5) 4px;
+    background-color: rgba(106, 90, 205, 0.5);
+}
+.Guns .TextShadow {
+    text-shadow: 0 0 9px rgba( 0, 0, 0, 1 ), 0 0 9px rgba( 0, 0, 0, 1 ), 0 0 9px rgba( 0, 0, 0, 1 ), 0 0 9px rgba( 0, 0, 0, 1 ), 0 0 9px rgba( 0, 0, 0, 1 ), 0 0 9px rgba( 0, 0, 0, 1 ), 0 0 9px rgba( 0, 0, 0, 1 ), 0 0 9px rgba( 0, 0, 0, 1 ), 0 0 9px rgba( 0, 0, 0, 1 ), 0 0 9px rgba( 0, 0, 0, 1 );
+}
+
+.Guns.★★ {
+    background-image: url("../resource/rarity/General.png");
+}
+.Guns.★★★ {
+    background-image: url("../resource/rarity/Rare.png");
+}
+.Guns.★★★★ {
+    background-image: url("../resource/rarity/Epochal.png");
+}
+.Guns.★★★★★ {
+    background-image: url("../resource/rarity/Legendary.png");
+}
+.Guns .GunName {
+    position: absolute;
+    bottom: 1em;
+    left: 50%;
+    transform: translate( -50%, 0% );
+}
+.Guns .GunTime {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+}
+.Guns .GunType {
+    height: 32px;
+    width: 64px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-size: cover;
+}
+.Guns .GunType.AR {
+    background-image: url("../resource/type/AR.png");
+}
+.Guns .GunType.HG {
+    background-image: url("../resource/type/HG.png");
+}
+.Guns .GunType.RF {
+    background-image: url("../resource/type/RF.png");
+}
+.Guns .GunType.SMG {
+    background-image: url("../resource/type/SMG.png");
+}
+.Guns .GunType.SG {
+    background-image: url("../resource/type/SG.png");
+}
+.Guns .GunType.MG {
+    background-image: url("../resource/type/MG.png");
+}
+
+#GunList.VISIBLE, .VISIBLE {
+    display: block !important;
+}
+.INVISIBLE {
+    display: none;
+}
+.NavContainer {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate( -50%, -50% );
+}
+.Factory {
+    background-image: url("../resource/Factory.png");
+}
+.LogisticSupport {
+    background-image: url("../resource/LogisticSupport.png");
+}
+.Factory, .LogisticSupport {
+    height: 200px;
+    width: 350px;
+    background-size: cover;
+    float: left;
+}
+.Factory > a, .LogisticSupport > a {
+    width: 100%;
+    height: 100%;
+    display: block;
+}

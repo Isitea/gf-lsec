@@ -1,0 +1,63 @@
+* {
+    transition: 0.2s;
+}
+
+legend {
+    margin: 0 0 0 10%;
+    font-style: italic;
+    font-weight: lighter;
+}
+
+label {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: rgba(19, 12, 53, 0.75);
+}
+
+.Selectable span input {
+    top: 2px;
+}
+
+.Condition {
+    background-color: rgba(0, 231, 255, 0.5);
+}
+
+.Condition:focus, .Condition:hover {
+    animation: blink-input 1s infinite;
+}
+
+@keyframes blink-input {
+    0% {
+        background-color: rgba(0, 231, 255, 0.5);
+        color: white;
+    }
+    50% {
+        background-color: rgba(131, 203, 212, 0.8);
+        color: black;
+    }
+    100% {
+        background-color: rgba(0, 231, 255, 0.5);
+        color: white;
+    }
+}
+
+#LogisticsCalculator .Table_Cell {
+    border: solid 1px rgba(45, 12, 74, 0.75);
+}
+
+#LogisticsCalculator .Table .Table_Body .Table_Row > :nth-child(1) {
+    background: rgba(196, 196, 0, 0.65);
+}
+
+#LogisticsCalculator .Table .Table_Body .Table_Row{
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+}
+
+#LogisticsCalculator .Table .Table_Header {
+    background-color: rgba(48, 35, 130, 0.8);
+}
+
+#LogisticsCalculator .Table .Table_Footer {
+    background-color: rgba(72, 62, 234, 0.65);
+}
