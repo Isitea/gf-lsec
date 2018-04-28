@@ -1,0 +1,12 @@
+<p>
+  logistics works!
+</p>
+<mat-table #table [dataSource]="missions">
+  <ng-container matColumnDef="Mission">
+    <mat-header-cell *matHeaderCellDef> Mission </mat-header-cell>
+    <mat-cell *matCellDef="let mission"> {{mission.code}} </mat-cell>
+  </ng-container>
+  
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
