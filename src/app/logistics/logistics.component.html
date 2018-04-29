@@ -1,12 +1,49 @@
-<p>
-  logistics works!
-</p>
 <mat-table #table [dataSource]="missions">
   <ng-container matColumnDef="Mission">
-    <mat-header-cell *matHeaderCellDef> Mission </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef> 작전 지역 </mat-header-cell>
     <mat-cell *matCellDef="let mission"> {{mission.code}} </mat-cell>
   </ng-container>
   
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  <ng-container matColumnDef="Labor">
+    <mat-header-cell *matHeaderCellDef> 인력 </mat-header-cell>
+    <mat-cell *matCellDef="let mission"> {{mission.resource.labor}} </mat-cell>
+  </ng-container>
+  
+  <ng-container matColumnDef="Ammo">
+    <mat-header-cell *matHeaderCellDef> 탄환 </mat-header-cell>
+    <mat-cell *matCellDef="let mission"> {{mission.resource.ammo}} </mat-cell>
+  </ng-container>
+  
+  <ng-container matColumnDef="Ration">
+    <mat-header-cell *matHeaderCellDef> 식량 </mat-header-cell>
+    <mat-cell *matCellDef="let mission"> {{mission.resource.ration}} </mat-cell>
+  </ng-container>
+  
+  <ng-container matColumnDef="Component">
+    <mat-header-cell *matHeaderCellDef> 부품 </mat-header-cell>
+    <mat-cell *matCellDef="let mission"> {{mission.resource.component}} </mat-cell>
+  </ng-container>
+  
+  <ng-container matColumnDef="Sum">
+    <mat-header-cell *matHeaderCellDef> 합계 </mat-header-cell>
+    <mat-cell *matCellDef="let mission"> {{mission.resource}} </mat-cell>
+  </ng-container>
+  
+  <ng-container matColumnDef="Duration">
+    <mat-header-cell *matHeaderCellDef> 소요 시간 </mat-header-cell>
+    <mat-cell *matCellDef="let mission"> {{mission.duration}} </mat-cell>
+  </ng-container>
+  
+  <ng-container matColumnDef="Requirement">
+    <mat-header-cell *matHeaderCellDef> 요구 조건 </mat-header-cell>
+    <mat-cell *matCellDef="let mission"> 리더 Lv. <span class="requirement leader">{{mission.requirement.leader.toString().padStart( 2, "0" )}}</span>, 총원 <span class="requirement members">{{mission.requirement.members}}</span>명 </mat-cell>
+  </ng-container>
+  
+  <ng-container matColumnDef="Bonus">
+    <mat-header-cell *matHeaderCellDef> 보너스 </mat-header-cell>
+    <mat-cell *matCellDef="let mission"> {{showBonus( mission.bonus )}} </mat-cell>
+  </ng-container>
+  
+  <mat-header-row *matHeaderRowDef="Columns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: Columns;"></mat-row>
 </mat-table>
